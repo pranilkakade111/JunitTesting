@@ -86,6 +86,7 @@ public class App
 				 return m1;
 			
 		}
+				
     public static void main( String[] args )
     {
     	boolean result=new App().CheckFirstName();
@@ -109,5 +110,33 @@ public class App
     	{
     		System.out.println("invalid");
     	}
+    	
+    	new App().checkemail();
     }
+
+	public static boolean checkemail() 
+	{
+		System.out.println("Enter your Email Address");
+		String email=sc.next();
+		    String regex="[a-zA-Z0-9_.]+@[a-zA-Z.]+$";
+			Pattern p = Pattern.compile(regex);
+			
+			 Matcher m = p.matcher(email);
+			 boolean m1=m.matches();
+			 System.out.println(m1);
+		
+			 if (m1==false)
+			 {
+				 
+				 System.out.println("invalid inputs for email please renter in the correct format");
+				 
+				 
+			 }
+			 
+			 else
+			 {
+				 System.out.println("your email is "+email);
+			 }
+			return m1;
+	}
 }
