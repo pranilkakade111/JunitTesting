@@ -55,5 +55,21 @@ public class AppTest
 		assertEquals(false, result);
 		}
 
+   @Test
+	public void validateEmail_WhenProper_ShouldReturnTrue() 
+		{
+		boolean result= App.checkemail();
+		assertEquals(true, result);
+ 
+		}
+	
+	
+	@Test
+	public void validateEmail_WhenProper_ShouldReturnFalse() 
+		{
+		boolean result= App.checkemail();
+		assertEquals(false, result);
+		}
+	
 	
 	}
