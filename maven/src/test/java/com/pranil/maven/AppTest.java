@@ -21,5 +21,21 @@ public void validateFirstNameFalseCase()
 	assertEquals(false, result);
 	}
 
+@Test
+public void validateLastNameTrueCase() 
+	{
+	
+	boolean result= App.CheckLastName();
+	assertEquals(true, result);
+
+	}
+
+
+@Test
+public void validateLastNameFalseCase() 
+	{
+	boolean result= App.CheckLastName();
+	assertEquals(false, result);
+	}
 
 }

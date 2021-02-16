@@ -36,6 +36,34 @@ public class App
 			 }
 			 return m1;
 		}
+		
+
+		public static boolean CheckLastName()
+		{
+				
+				System.out.println("enter your name");
+				String lastName=sc.next(); 
+				
+				String regex="[A-Z]{1}[a-z]{2,10}$";
+				Pattern p = Pattern.compile(regex);
+				
+				 Matcher m = p.matcher(lastName);
+				 boolean m1=m.matches();
+				 System.out.println(m1);
+				
+				 if (m1==false)
+				 {
+					 
+					 System.out.println("invalid inputs in name");
+					 
+				 }
+				 
+				 else
+				 {
+					 System.out.println("your name "+lastName);
+				 }
+				 return m1;
+			}
 		 public static void main( String[] args )
 		    {
 		   
@@ -47,8 +75,12 @@ public class App
 		    	}
 		    	else
 		    	{
+		    		
 		    		System.out.println("invalid");
 		    	}
+		    	
+		    	new App();
+				App.CheckLastName();
 		    }
 }
 
