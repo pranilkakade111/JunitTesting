@@ -86,6 +86,56 @@ public class App
 				 return m1;
 			
 		}
+		
+		public static boolean checkpassword() 
+		{
+			
+			System.out.println("enter the password");
+			 int count=0;
+			  boolean m1=true;
+			for(int i= 0; i<5 ; i++)
+			{
+			    String password=sc.next();
+			    String regex="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$])(?=\\S+$).{4,10}$";
+				Pattern p = Pattern.compile(regex);
+				
+				 Matcher m = p.matcher(password);
+				  m1=m.matches();
+				 System.out.println(m1);
+				count+=1;
+
+				 if (m1==false)
+				 {
+					 
+					 System.out.println("invalid inputs for password");
+					 System.out.println("you hav used "+count+ " from maximun 5 attempts");
+					 continue;
+					 
+				 }
+				 
+				 else
+				 {
+					 System.out.println("your password "+password);
+					
+					 System.out.println("please Re-enter the correct password");
+					 String password2=sc.next();
+					 if(password2.contains(password))
+					 {
+						 System.out.println("you have succesfully set your password");
+						
+					 }
+					 else
+					 {
+						 System.out.println("Re-enter the password ");
+						 continue;
+					 }
+					 break;
+				 }
+				
+			}
+				
+			return m1;  
+		}
 				
     public static void main( String[] args )
     {
@@ -112,6 +162,8 @@ public class App
     	}
     	
     	new App().checkemail();
+    	
+    	new App().checkpassword();
     }
 
 	public static boolean checkemail() 
