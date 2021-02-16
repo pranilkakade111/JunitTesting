@@ -71,5 +71,20 @@ public class AppTest
 		assertEquals(false, result);
 		}
 	
+	public void validatePassword_WhenProper_ShouldReturnTrue() 
+	{
+	boolean result= App.checkpassword();
+	assertEquals(true, result);
+
+	}
+
+
+
+
+public void validatePassword_WhenProper_ShouldReturnFalse() 
+	{
+	boolean result= App.checkpassword();
+	assertEquals(false, result);
+	}
 	
 	}
