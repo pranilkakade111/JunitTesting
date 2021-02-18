@@ -1,9 +1,13 @@
 package com.junit.apptest;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+@SuppressWarnings("static-access")
 public class App 
 {
 	static Scanner sc= new Scanner(System.in);
@@ -136,6 +140,102 @@ public class App
 				
 			return m1;  
 		}
+		
+		void FirstByLamda()
+		{
+			 String regex="[A-Z]{1}[a-z]{2,10}$";
+		 	 ArrayList <String> First_Name=new ArrayList<String>();
+			System.out.println("enter number of input");
+			int n1=sc.nextInt();
+			for(int i=0; i<n1 ; i++) {
+				First_Name.add(sc.next());
+			}
+			System.out.println("your list of first name "+First_Name.toString());
+			Pattern pt = Pattern.compile(regex);
+			
+		    List<String> a1= First_Name. stream(). filter(p -> pt. matcher(p). find()). collect(Collectors.<String>toList());
+			System.out.println("your correct inputs are"+a1);
+			
+		}
+		
+		
+		
+		void LastByLamda()
+		{
+			 String regex="[A-Z]{1}[a-z]{2,10}$";
+		 	 ArrayList <String> Last_Name=new ArrayList<String>();
+			//String mail1=sc.next();
+			 System.out.println("enter number of input you wanna to give");
+			 int n1=sc.nextInt();
+			 for(int i=0; i<n1 ; i++) {
+				Last_Name.add(sc.next());
+			}
+			System.out.println("your contains are "+Last_Name.toString());
+			Pattern pt = Pattern.compile(regex);
+			
+		    List<String> a1= Last_Name. stream(). filter(p -> pt. matcher(p). find()). collect(Collectors.<String>toList());
+			System.out.println("correct name format are "+a1);
+			
+		}
+		
+		
+		
+		
+		void PhoneByLamda()
+		{
+			String regex="^\\+(?:[0-9] ?){6,14}[0-9]$";
+		 	 ArrayList <String> phone_no=new ArrayList<String>();
+			 System.out.println("enter number of input you wanna to give");
+			 int n1=sc.nextInt();
+			 for(int i=0; i<n1 ; i++) {
+				phone_no.add(sc.next());
+			}
+			System.out.println("added contact number are "+phone_no.toString());
+			Pattern pt = Pattern.compile(regex);
+			
+		    List<String> a1= phone_no. stream(). filter(p -> pt. matcher(p). find()). collect(Collectors.<String>toList());
+			System.out.println(a1);
+			
+		}
+		
+		void PasswordByLamda()
+		{
+			 String regex="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$])(?=\\S+$).{4,10}$";
+		 	 ArrayList <String> password=new ArrayList<String>();
+			 System.out.println("enter number of input you wanna to give");
+			 int n1=sc.nextInt();
+			 for(int i=0; i<n1 ; i++) {
+				password.add(sc.next());
+			}
+			System.out.println("your passwords are "+password.toString());
+			Pattern pt = Pattern.compile(regex);
+			
+		    List<String> a1= password. stream(). filter(p -> pt. matcher(p). find()). collect(Collectors.<String>toList());
+			System.out.println(a1);
+			
+		}	
+		
+		void checkemailByLamda()
+		{
+			 String regex="[a-zA-Z0-9_.]+@[a-zA-Z]+.[a-zA-Z]+$";
+			ArrayList <String> mail=new ArrayList<String>();
+			System.out.println("enter number of input you wanna to give");
+			int n1=sc.nextInt();
+			for(int i=0; i<n1 ; i++) {
+				mail.add(sc.next());
+			}
+			System.out.println("your mails are "+mail.toString());
+			Pattern pt = Pattern.compile(regex);
+		    List<String> a1= mail. stream(). filter(p -> pt. matcher(p). find()). collect(Collectors.<String>toList());
+			System.out.println("your correct mails are " +a1);
+			
+		}
+		
+		 static void end()
+         {
+      	System.out.println("thank you");
+				exit=true;
+         }
 				
     public static void main( String[] args )
     {
@@ -149,21 +249,100 @@ public class App
     		System.out.println("invalid");
     	}
     	
-    	new App().CheckLastName();
+		while(!exit)
+		{
+		Scanner s=new Scanner(System.in);
+         System.out.println("enter your choice to fill the details for registrartion");
+        
+         System.out.println("1. Enter for First name");
+         System.out.println("2. Enter for Last name");
+         System.out.println("3. Enter for Contact Number");
+         System.out.println("4. Enter for Email Address");
+         System.out.println("5. Enter for Password");
+         System.out.println("-------------------------------------------------------------");
+         System.out.println("6. Enter for First name through lamda function");
+         System.out.println("7. Enter for Last name through lamda function");
+         System.out.println("8. Enter for Contact Number through lamda function");
+         System.out.println("9. Enter for Email Address through lamda function ");
+         System.out.println("10.Enter for Password through lamda function");
+         System.out.println("-------------------------------------------------------------");
+         
+         System.out.println("11. Finish And Exit ");
+         int choice=s.nextInt();
+         
+         switch(choice)
+         
+         {
+         case 1:
+        	 
+        	 boolean result1=new App().CheckFirstName();
+         	if(result1==true)
+         	{
+         		System.out.println("valid");
+         	}
+         	else
+         	{
+         		System.out.println("invalid");
+         	}        	 break;
+        	 
+         case 2:
+        	 
+        	 new App().CheckLastName();
+        	 break;
+        	 
+         case 3:
+        	 
+        	 new App().checknumber();
+        	 if(result==true)
+         	{
+         		System.out.println("valid");
+         	}
+         	else
+         	{
+         		System.out.println("invalid");
+         	}
+
+        	 break;
+        	 
+         case 4:
+        	 new App().checkemail();
+        	 
+        	 break;
+        	 
+         case 5:
+        	 
+        	 new App().checkpassword();
+        	 break;
+        	 
+        	 
+         case 6 :
+        	 new App().FirstByLamda();
+        	 break;
+        	 
+         case 7 :
+        	 new App().LastByLamda();
+        	 break;
+         
+         case 8:
+        	 new App().PhoneByLamda();
+        	 break;
+        	 
+         case 9 :
+        	 new App().checkemailByLamda();
+        	 break;
+        	 
+         case 10 :
+             new App().PasswordByLamda();
+        	 break;
+        	 
+         case 11:
+        	 end();
+        	 break;
+        
+        		  
+         }
+		}
     	
-    	boolean result1=new App().checknumber();
-    	if(result1==true)
-    	{
-    		System.out.println("valid");
-    	}
-    	else
-    	{
-    		System.out.println("invalid");
-    	}
-    	
-    	new App().checkemail();
-    	
-    	new App().checkpassword();
     }
 
 	public static boolean checkemail() 
